@@ -105,7 +105,6 @@ export class FormComponent implements OnInit {
     this.passwordCheck = event?.target.value;
   }
   confirmPassword(event: any) {
-    console.log(event?.target.value)
     const confirmPwd = event?.target.value;
     if (confirmPwd.length >= this.passwordCheck.length) {
       if (this.passwordCheck != confirmPwd) {
