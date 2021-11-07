@@ -1,0 +1,20 @@
+<mat-card class="w-25 mx-auto mt-3 pt-3 text-center">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-form-field appearance="outline" class="mx-2 w-100">
+            <mat-label>Email Id</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="email">
+            <mat-error>Email id is required</mat-error>
+            <mat-error>Email id invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="mx-2 w-100">
+            <mat-label>Passowrd</mat-label>
+            <input matInput type="password" placeholder="Placeholder" formControlName="password">
+            <mat-error>Password is required</mat-error>
+            <mat-error>Minimum length 6 required</mat-error>
+        </mat-form-field>
+        <div class="justify-content-center d-flex mt-3">
+            <button mat-raised-button type="reset" color="warn" class="mx-4">Reset</button>
+            <button mat-raised-button color="primary" class="mx-4" [disabled]="!form.valid">Submit</button>
+        </div>
+    </form>
+</mat-card>

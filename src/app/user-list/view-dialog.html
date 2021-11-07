@@ -1,0 +1,12 @@
+<div class="row">
+    <div>
+        <img src="{{data.image?baseUrl+'/file/'+data.image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJC7vsNyuLBgWhs6JnH29BbJHKOIB0lbcjxGvc705vV1V3kfAW_IwonqH1s_MzqYLHi7I&usqp=CAU'}}"
+            width="150" height="150">
+    </div>
+    <div class="w-100 ml-3">
+        <p>First Name: {{data.firstname?(data.firstname | uppercase):'-'}}</p>
+        <p>Last Name: {{data.lastname?(data.lastname | uppercase):'-'}}</p>
+        <p>Email Id: {{data.email?(data.email | uppercase):'-'}}</p>
+        <button mat-button mat-dialog-close class="float-right mt-3">Cancel</button>
+    </div>
+</div>

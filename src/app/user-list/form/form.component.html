@@ -1,0 +1,50 @@
+<mat-card class="w-35 mx-auto mt-3 pt-3 text-center">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="items-align-center d-flex mb-3">
+            <img [src]="src?src:baseUrl+'/file/'+images" class="w-50 mx-4">
+            <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+            <input hidden (change)="uploadFile()" #fileInput type="file" id="file">
+        </div>
+        <mat-form-field appearance="outline" class="mx-2">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="firstname">
+            <mat-error *ngIf="f.firstname.invalid && (f.firstname.dirty || f.firstname.touched)">First name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="mx-2">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="lastname">
+            <mat-error *ngIf="f.lastname.invalid && (f.lastname.dirty || f.lastname.touched)">Last name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="mx-2 w-88">
+            <mat-label>Email Id</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="email">
+            <mat-error *ngIf="f.email.errors?.required">Email id is required</mat-error>
+            <mat-error *ngIf="f.email.errors?.email">Email id invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="mx-2">
+            <mat-label>Passowrd</mat-label>
+            <input matInput type="password" placeholder="Placeholder" formControlName="password"
+                (change)="password($event)">
+            <mat-error *ngIf="f.password.errors?.required">Password is required
+            </mat-error>
+            <mat-error *ngIf="f.password.errors?.minlength">Minimum length 6 required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="mx-2">
+            <mat-label>Confirm Passowrd</mat-label>
+            <input matInput type="password" placeholder="Placeholder" formControlName="confirmPassword"
+                (keyup)="confirmPassword($event)">
+            <mat-error *ngIf="f.confirmPassword.errors?.required">
+                Confirm password is required</mat-error>
+            <mat-error *ngIf="f.confirmPassword.errors?.minlength">Minimum length 6 required
+            </mat-error>
+        </mat-form-field>
+        <div class="justify-content-center d-flex mt-3">
+            <button mat-raised-button color="warn" class="mx-4" (click)="back()">Back</button>
+            <button mat-raised-button color="primary" class="mx-4"
+                [disabled]="matchPwd?matchPwd:!form.valid">Submit</button>
+        </div>
+    </form>
+</mat-card>

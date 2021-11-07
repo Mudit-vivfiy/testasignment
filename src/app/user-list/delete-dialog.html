@@ -1,0 +1,7 @@
+<div>
+    <h2>Are you sure you want to delete ?</h2>
+    <div class="justify-content-center d-flex mt-3">
+        <button mat-raised-button (click)="onNoClick()" color="warn" class="mx-4">Cancel</button>
+        <button mat-raised-button color="primary" class="mx-4" [mat-dialog-close]="{'id':data.id}">Delete</button>
+    </div>
+</div>
